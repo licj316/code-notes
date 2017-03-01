@@ -19,7 +19,7 @@ import lombok.Data;
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class TableEntity extends BaseEntity {
+public class Table extends BaseEntity {
 	
 	
 }
