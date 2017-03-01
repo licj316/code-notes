@@ -82,16 +82,3 @@ public class TableUtils {
 		return dataMap;
 	}
 }
-
-
-
-/*int iDisplayStart = Integer.valueOf(vo.get("start").toString());
-int iDisplayLength = Integer.valueOf(vo.get("length").toString());
-int iStartPage = iDisplayStart/iDisplayLength + 1;
-PageHelper.startPage(iStartPage, iDisplayLength);
-List<Map<String, Object>> list = gatheringDao.getGatherings(vo);
-return TableUtils.getTableDataNew(vo, list);*/
-
-
-//String gatheringData = vo.get("gatheringData");
-//List<Map<String, Object>> list = JSONUtil.json2Obj(gatheringData, new TypeReference<List<Map<String, Object>>>(){});
