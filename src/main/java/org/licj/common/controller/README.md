@@ -2,6 +2,7 @@
 
 ##通用分页加载数据
 1. 使用方式如下
+
    ~~~javascript
    var params = [];
    params.push({name:"queryMapper", value:"com.licj.common.dao.TableDao.getData"});
