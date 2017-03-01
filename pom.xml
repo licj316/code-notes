@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.licj.common</groupId>
-	<artifactId>code-record</artifactId>
+	<artifactId>code-notes</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>code-record Maven Webapp</name>
+	<name>code-notes Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<repositories>
@@ -20,6 +20,8 @@
 	</repositories>
 
 	<properties>
+		<jackson.version>1.9.13</jackson.version>
+		<fasterxml.version>2.3.0</fasterxml.version>
 		<org.springframework.version>4.3.6.RELEASE</org.springframework.version>
 		<!-- <struts2.version>2.3.1</struts2.version> -->
 		<log4j.version>2.0</log4j.version>
@@ -31,6 +33,7 @@
 		<mybatis.version>3.2.3</mybatis.version>
 		<mybatis.spring.version>1.2.1</mybatis.spring.version>
 		<pagehelper.version>4.1.6</pagehelper.version>
+		<lombok.version>1.16.8</lombok.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -45,7 +48,34 @@
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.13</version>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
+
+		<!-- Apache Poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.12</version>
 		</dependency>
 
 		<!--utils -->
@@ -304,7 +334,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- dao mybatis -->
+		<!-- Mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
@@ -316,14 +346,23 @@
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
 		</dependency>
+		
+		<!-- Mybatis-PageHelper -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
 			<version>${pagehelper.version}</version>
 		</dependency>
+		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>code-record</finalName>
+		<finalName>code-notes</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -333,21 +372,18 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-				<!-- <dependencies> <dependency> <groupId>org.codehaus.plexus</groupId> 
-					<artifactId>plexus-compiler-eclipse</artifactId> <version>2.2</version> </dependency> 
-					</dependencies> -->
-				<resources>
-					<resource>
-						<directory>src/main/resources</directory>
-					</resource>
-					<resource>
-						<directory>src/main/java</directory>
-						<includes>
-							<include>**/*Dao.xml</include>
-						</includes>
-					</resource>
-				</resources>
 			</plugin>
 		</plugins>
+		<!-- <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*Dao.xml</include>
+				</includes>
+			</resource>
+		</resources> -->
 	</build>
 </project>
