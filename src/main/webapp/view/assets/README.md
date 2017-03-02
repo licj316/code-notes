@@ -17,11 +17,11 @@
 ~~~javascript
 seajs.use('assets/commonTreeSelect.js', function(commonTreeSelect){
 	new commonTreeSelect({
-		label : "选择部门",
-		url : s_contractservice + "/department/getDepartmentTreeList",
-		hiddenInputId : "departmentIds",
-		displayInputId : "departmentNames",
-		params:{rootDepartmentId:'68'}
+		label : "选择xxx",
+		url : "/xxxx/xxxx",
+		hiddenInputId : "hiddenInputId",
+		displayInputId : "displayInputId",
+		params:{rootId:'68'}
 	});
 });
 ~~~
